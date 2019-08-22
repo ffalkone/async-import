@@ -1,0 +1,12 @@
+{
+  "import_service_source": {
+    "column": {
+      "uuid": true,
+      "file": true,
+      "meta_data": true
+    },
+    "constraint": {
+      "PRIMARY": true
+    }
+  }
+}

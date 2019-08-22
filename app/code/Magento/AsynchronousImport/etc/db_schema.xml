@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="asynchronous_import_source" resource="default" engine="innodb" comment="Import Sources List">
+        <column xsi:type="varbinary" name="uuid" nullable="false" length="36" comment="Universally unique identifier"/>
+        <column xsi:type="varchar" name="file" nullable="false" length="255" comment="Source File"/>
+        <column xsi:type="longtext" name="meta_data" nullable="true" comment="Source Meta Data" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="uuid"/>
+        </constraint>
+    </table>
+</schema>

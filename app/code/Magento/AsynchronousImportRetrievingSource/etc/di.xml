@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\AsynchronousImportRetrievingSourceApi\Api\Data\SourceDataInterface"
+                type="Magento\AsynchronousImportRetrievingSource\Model\SourceData" />
+
+    <preference for="Magento\AsynchronousImportRetrievingSourceApi\Api\Data\RetrievingResultInterface"
+                type="Magento\AsynchronousImportRetrievingSource\Model\RetrievingResult" />
+    <!-- Source data retrieving -->
+    <type name="Magento\AsynchronousImportRetrievingSourceApi\Model\SourceDataRetrievingChain">
+        <arguments>
+            <argument name="sourceDataRetrievers" xsi:type="array">
+                <item name="base64_encoded_data" xsi:type="string">Magento\AsynchronousImportRetrievingSource\Model\SourceDataRetrieving\Base64EncodedData</item>
+                <item name="external_file" xsi:type="string">Magento\AsynchronousImportRetrievingSource\Model\SourceDataRetrieving\ExternalFile</item>
+                <item name="local_file" xsi:type="string">Magento\AsynchronousImportRetrievingSource\Model\SourceDataRetrieving\LocalFile</item>
+            </argument>
+        </arguments>
+    </type>
+    <!-- Validation -->
+    <virtualType name="Magento\AsynchronousImportRetrievingSource\Model\Validator\LocalFileValidator"
+                 type="Magento\AsynchronousImportRetrievingSourceApi\Model\SourceDataValidatorChain">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="source_data" xsi:type="object">Magento\AsynchronousImportRetrievingSource\Model\SourceDataValidator\SourceDataValidator</item>
+                <item name="local_path" xsi:type="object">Magento\AsynchronousImportRetrievingSource\Model\SourceDataValidator\LocalPathValidator</item>
+                <item name="mime_type" xsi:type="object">Magento\AsynchronousImportRetrievingSource\Model\SourceDataValidator\MimeTypeValidator</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\AsynchronousImportRetrievingSource\Model\SourceDataRetrieving\LocalFile">
+        <arguments>
+            <argument name="sourceValidator" xsi:type="object">Magento\AsynchronousImportRetrievingSource\Model\Validator\LocalFileValidator</argument>
+        </arguments>
+    </type>
+    <virtualType name="Magento\AsynchronousImportRetrievingSource\Model\Validator\Base64EncodedDataValidator"
+                 type="Magento\AsynchronousImportRetrievingSourceApi\Model\SourceDataValidatorChain">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="source_data" xsi:type="object">Magento\AsynchronousImportRetrievingSource\Model\SourceDataValidator\SourceDataValidator</item>
+                <item name="base64" xsi:type="object">Magento\AsynchronousImportRetrievingSource\Model\SourceDataValidator\Base64Validator</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\AsynchronousImportRetrievingSource\Model\SourceDataRetrieving\Base64EncodedData">
+        <arguments>
+            <argument name="sourceValidator" xsi:type="object">Magento\AsynchronousImportRetrievingSource\Model\Validator\Base64EncodedDataValidator</argument>
+        </arguments>
+    </type>
+    <virtualType name="Magento\AsynchronousImportRetrievingSource\Model\Validator\ExternalFileValidator"
+                 type="Magento\AsynchronousImportRetrievingSourceApi\Model\SourceDataValidatorChain">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="source_data" xsi:type="object">Magento\AsynchronousImportRetrievingSource\Model\SourceDataValidator\SourceDataValidator</item>
+                <item name="remote_url" xsi:type="object">Magento\AsynchronousImportRetrievingSource\Model\SourceDataValidator\RemoteUrlValidator</item>
+                <item name="mime_type" xsi:type="object">Magento\AsynchronousImportRetrievingSource\Model\SourceDataValidator\MimeTypeValidator</item>
+                <item name="uuid" xsi:type="object">Magento\AsynchronousImportRetrievingSource\Model\SourceDataValidator\UuidValidator</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\AsynchronousImportRetrievingSource\Model\SourceDataRetrieving\ExternalFile">
+        <arguments>
+            <argument name="sourceValidator" xsi:type="object">Magento\AsynchronousImportRetrievingSource\Model\Validator\ExternalFileValidator</argument>
+        </arguments>
+    </type>
+</config>

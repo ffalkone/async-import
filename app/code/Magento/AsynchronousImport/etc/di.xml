@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Source -->
+    <preference for="Magento\AsynchronousImportApi\Api\Data\SourceInterface" type="Magento\AsynchronousImport\Model\Source"/>
+    <preference for="Magento\AsynchronousImportApi\Api\SaveSourceInterface" type="Magento\AsynchronousImport\Model\SaveSource"/>
+    <type name="Magento\AsynchronousImportApi\Model\SourceValidatorChain">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="uuid" xsi:type="object">Magento\AsynchronousImport\Model\Source\Validator\UuidValidator</item>
+                <item name="file" xsi:type="object">Magento\AsynchronousImport\Model\Source\Validator\FileValidator</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
