@@ -283,7 +283,12 @@
         "twbs/bootstrap": "3.1.0",
         "tinymce/tinymce": "3.4.7",
         "magento/module-tinymce-3": "*",
-        "magento/module-import-service": "*"
+        "magento/module-asynchronous-import": "*",
+        "magento/module-asynchronous-import-api": "*",
+        "magento/module-asynchronous-import-csv": "*",
+        "magento/module-asynchronous-import-csv-api": "*",
+        "magento/module-asynchronous-import-retrieving-source": "*",
+        "magento/module-asynchronous-import-retrieving-source-api": "*"
     },
     "conflict": {
         "gene/bluefoot": "*"
