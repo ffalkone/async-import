@@ -22,5 +22,6 @@ class UpdateCsvSourceFormat implements UpdateCsvSourceFormatInterface
     {
         // TODO:
         // $sourceToUpdate->getSourceType() !== CsvSourceCreateInterface::CSV_SOURCE_TYPE
+        return;
     }
 }

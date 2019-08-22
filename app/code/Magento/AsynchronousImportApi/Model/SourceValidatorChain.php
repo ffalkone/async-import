@@ -60,9 +60,10 @@ class SourceValidatorChain implements SourceValidatorInterface
             $validationResult = $validator->validate($source);
 
             if (!$validationResult->isValid()) {
-                $errors = array_merge($errors, $validationResult->getErrors());
+                $errors[] = $validationResult->getErrors();
             }
         }
+        $errors = count($errors) ? array_merge(...$errors) : [];
         return $this->validationResultFactory->create(['errors' => $errors]);
     }
 }

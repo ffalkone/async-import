@@ -26,5 +26,5 @@ interface SaveSourceInterface
      * @throws ValidationException
      * @throws CouldNotSaveException
      */
-     public function execute(SourceInterface $source): void;
+    public function execute(SourceInterface $source): void;
 }

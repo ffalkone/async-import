@@ -55,6 +55,8 @@ class Source extends AbstractModel implements SourceInterface
     }
 
     /**
+     * Object initialization
+     *
      * @return void
      */
     protected function _construct(): void

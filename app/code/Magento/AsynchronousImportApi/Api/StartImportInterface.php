@@ -26,5 +26,5 @@ interface StartImportInterface
      * @throws ValidationException
      * @throws CouldNotSaveException
      */
-     public function execute(ImportInterface $import): void;
+    public function execute(ImportInterface $import): void;
 }

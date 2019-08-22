@@ -119,7 +119,7 @@ class MimeTypeValidator implements SourceDataValidatorInterface
         }
 
         if ($mimeType) {
-            if (is_array($mimeType)){
+            if (is_array($mimeType)) {
                 $mimeType = implode(";", $mimeType);
             }
             $mimeType = trim(explode(";", $mimeType)[0]);

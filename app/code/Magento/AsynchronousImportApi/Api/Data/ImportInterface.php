@@ -7,14 +7,12 @@ declare(strict_types=1);
 
 namespace Magento\AsynchronousImportApi\Api\Data;
 
-use Magento\Framework\Api\ExtensibleDataInterface;
-
 /**
  * Interface ImportDataInterface
  *
  * @api
  */
-interface ImportInterface extends ExtensibleDataInterface
+interface ImportInterface
 {
     public const UUID = 'uuid';
     public const SOURCE_UUID = 'source_uuid';
@@ -66,11 +64,4 @@ interface ImportInterface extends ExtensibleDataInterface
      * @return string|null
      */
     public function getCreatedAt(): ?string;
-
-    /**
-     * Retrieve existing extension attributes object
-     *
-     * @return \Magento\AsynchronousImportApi\Api\Data\ImportDataExtensionInterface|null
-     */
-    public function getExtensionAttributes(): ?\Magento\AsynchronousImportApi\Api\Data\ImportDataExtensionInterface;
 }

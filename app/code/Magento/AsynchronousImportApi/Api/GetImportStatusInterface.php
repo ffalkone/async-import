@@ -23,5 +23,5 @@ interface GetImportStatusInterface
      * @return void
      * @throws NotFoundException
      */
-     public function execute(string $uuid): void;
+    public function execute(string $uuid): void;
 }

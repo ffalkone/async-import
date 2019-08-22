@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace Magento\AsynchronousImportCsv\Model;
 
+use Magento\AsynchronousImportCsvApi\Api\Data\CsvFormatExtensionInterface;
 use Magento\AsynchronousImportCsvApi\Api\Data\CsvFormatInterface;
 
 /**
@@ -35,21 +36,29 @@ class CsvFormat implements CsvFormatInterface
     private $multipleValueSeparator;
 
     /**
+     * @var CsvFormatExtensionInterface
+     */
+    private $extensionAttributes;
+
+    /**
      * @param string $separator
      * @param string $enclosure
      * @param string $delimiter
      * @param string $multipleValueSeparator
+     * @param CsvFormatExtensionInterface $extensionAttributes
      */
     public function __construct(
         string $separator,
         string $enclosure,
         string $delimiter,
-        string $multipleValueSeparator
+        string $multipleValueSeparator,
+        CsvFormatExtensionInterface $extensionAttributes
     ) {
         $this->separator = $separator;
         $this->enclosure = $enclosure;
         $this->delimiter = $delimiter;
         $this->multipleValueSeparator = $multipleValueSeparator;
+        $this->extensionAttributes = $extensionAttributes;
     }
 
     /**
@@ -82,5 +91,13 @@ class CsvFormat implements CsvFormatInterface
     public function getMultipleValueSeparator(): string
     {
         return $this->multipleValueSeparator;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getExtensionAttributes(): CsvFormatExtensionInterface
+    {
+        return $this->extensionAttributes;
     }
 }

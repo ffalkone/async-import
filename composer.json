@@ -284,6 +284,7 @@
         "tinymce/tinymce": "3.4.7",
         "magento/module-tinymce-3": "*",
         "magento/module-asynchronous-import": "*",
+        "magento/module-asynchronous-import-advanced-pricing": "*",
         "magento/module-asynchronous-import-api": "*",
         "magento/module-asynchronous-import-csv": "*",
         "magento/module-asynchronous-import-csv-api": "*",

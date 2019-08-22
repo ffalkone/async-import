@@ -18,6 +18,11 @@ interface CsvFormatInterface extends ExtensibleDataInterface
 {
     public const FORMAT_TYPE = 'csv';
 
+    public const SEPARATOR = 'separator';
+    public const ENCLOSURE = 'enclosure';
+    public const DELIMITER = 'delimiter';
+    public const MULTIPLE_VALUE_SEPARATOR = 'multiple_value_separator';
+
     public const DEFAULT_SEPARATOR = ',';
     public const DEFAULT_ENCLOSURE = '"';
     public const DEFAULT_DELIMITER = ',';
@@ -50,4 +55,11 @@ interface CsvFormatInterface extends ExtensibleDataInterface
      * @return string
      */
     public function getMultipleValueSeparator(): string;
+
+    /**
+     * Get existing extension attributes object
+     *
+     * @return \Magento\AsynchronousImportCsvApi\Api\Data\CsvFormatExtensionInterface
+     */
+    public function getExtensionAttributes(): CsvFormatExtensionInterface;
 }
