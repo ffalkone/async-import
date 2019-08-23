@@ -31,11 +31,18 @@ interface ImportInterface
     public const STATUS_FAIL = 'fail';
 
     /**
-     * Retrieve source uuid
+     * Retrieve import uuid
      *
      * @return string|null
      */
     public function getUuid(): ?string;
+
+    /**
+     * Retrieve source uuid
+     *
+     * @return string|null
+     */
+    public function getSourceUuid(): ?string;
 
     /**
      * Retrieve Import type

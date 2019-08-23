@@ -7,21 +7,22 @@ declare(strict_types=1);
 
 namespace Magento\AsynchronousImportApi\Api;
 
+use Magento\AsynchronousImportApi\Api\Data\ImportStatusInterface;
 use Magento\Framework\Exception\NotFoundException;
 
 /**
- * Get import operation
+ * Get import status operation
  *
  * @api
  */
 interface GetImportStatusInterface
 {
     /**
-     * Get import operation
+     * Get import status operation
      *
      * @param string $uuid
      * @return void
      * @throws NotFoundException
      */
-    public function execute(string $uuid): void;
+    public function execute(string $uuid): ImportStatusInterface;
 }
