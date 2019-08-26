@@ -42,7 +42,7 @@ class StartImportTest extends WebapiAbstract
             'import' => [
                 'uuid' => 'c4f2d109-0792-41ff-9f24-788ed5634001',
                 'sourceUuid' => 'c4f2d109-0792-41ff-9f24-788ed5634b41',
-                'importType' => 'import_type',
+                'importType' => 'advanced_pricing',
                 'importBehaviour' => 'import_behaviour',
                 'validationStrategy' => 'validation_strategy',
                 'allowedErrorCount' => 1,

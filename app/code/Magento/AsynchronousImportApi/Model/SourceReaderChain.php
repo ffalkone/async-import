@@ -12,11 +12,9 @@ use Magento\AsynchronousImportApi\Api\Data\SourceInterface;
 use Magento\AsynchronousImportApi\Api\ImportException;
 use Magento\Framework\ObjectManagerInterface;
 use Magento\Framework\Serialize\SerializerInterface;
-use Magento\Framework\Validation\ValidationResult;
-use Magento\Framework\Validation\ValidationResultFactory;
 
 /**
- * Chain of source readers. Extension point for new source types via di configuration
+ * Chain of source readers. Extension point for new source data formats via di configuration
  *
  * @api
  */

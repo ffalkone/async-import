@@ -13,4 +13,6 @@
                 type="Magento\AsynchronousImportApi\Model\ImportValidatorChain"/>
     <preference for="Magento\AsynchronousImportApi\Model\SourceReaderInterface"
                 type="Magento\AsynchronousImportApi\Model\SourceReaderChain"/>
+    <preference for="Magento\AsynchronousImportApi\Model\ImportDataProcessorInterface"
+                type="Magento\AsynchronousImportApi\Model\ImportDataProcessorChain"/>
 </config>
