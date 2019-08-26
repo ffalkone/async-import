@@ -5,9 +5,9 @@
  */
 declare(strict_types=1);
 
-namespace Magento\AsynchronousImport\Model\ResourceModel;
+namespace Magento\AsynchronousImport\Model\Source\ResourceModel;
 
-use Magento\AsynchronousImport\Model\Source as SourceModel;
+use Magento\AsynchronousImport\Model\Source\Source as SourceModel;
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 
 /**

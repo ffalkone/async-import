@@ -22,53 +22,46 @@ interface ImportInterface
     public const ALLOWED_ERROR_COUNT = 'allowed_error_count';
     public const IMPORT_IMAGE_ARCHIVE = 'import_image_archive';
     public const IMPORT_IMAGES_FILE_DIR = 'import_images_file_dir';
-    public const STARTED_AT = 'created_at';
-    public const FINISHED_AT = 'finished_at';
-    public const STATUS = 'status';
-
-    public const STATUS_RUNNING = 'running';
-    public const STATUS_COMPLETED = 'completed';
-    public const STATUS_FAIL = 'fail';
 
     /**
-     * Retrieve import uuid
+     * Get import uuid
      *
      * @return string|null
      */
     public function getUuid(): ?string;
 
     /**
-     * Retrieve source uuid
+     * Get source uuid
      *
      * @return string|null
      */
     public function getSourceUuid(): ?string;
 
     /**
-     * Retrieve Import type
+     * Get import type
      *
      * @return string|null
      */
     public function getImportType(): ?string;
 
     /**
-     * Get Import data
+     * Get import behaviour
      *
      * @return string|null
      */
-    public function getImportData(): ?string;
+    public function getImportBehaviour(): ?string;
 
     /**
-     * Get Import data
+     * Get validation startegy
      *
      * @return string|null
      */
-    public function getMetaData(): ?string;
+    public function getValidationStrategy(): ?string;
 
     /**
-     * Get Meta data
+     * Get allowed error count
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getCreatedAt(): ?string;
+    public function getAllowedErrorCount(): ?int;
 }

@@ -5,10 +5,10 @@
  */
 declare(strict_types=1);
 
-namespace Magento\AsynchronousImport\Model;
+namespace Magento\AsynchronousImport\Model\Source;
 
 use Exception;
-use Magento\AsynchronousImport\Model\ResourceModel\Source as SourceResourceModel;
+use Magento\AsynchronousImport\Model\Source\ResourceModel\Source as SourceResourceModel;
 use Magento\AsynchronousImportApi\Api\Data\SourceInterface;
 use Magento\AsynchronousImportApi\Api\SaveSourceInterface;
 use Magento\AsynchronousImportApi\Model\SourceValidatorInterface;

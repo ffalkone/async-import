@@ -5,9 +5,9 @@
  */
 declare(strict_types=1);
 
-namespace Magento\AsynchronousImport\Model;
+namespace Magento\AsynchronousImport\Model\Source;
 
-use Magento\AsynchronousImport\Model\ResourceModel\Source as SourceResourceModel;
+use Magento\AsynchronousImport\Model\Source\ResourceModel\Source as SourceResourceModel;
 use Magento\AsynchronousImportApi\Api\Data\SourceInterface;
 use Magento\Framework\Data\Collection\AbstractDb;
 use Magento\Framework\Model\AbstractModel;
@@ -28,6 +28,10 @@ class Source extends AbstractModel implements SourceInterface
     protected $_eventPrefix = 'asynchronous_import_source';
 
     /**
+     * $uuid, $file, $metaData are marked as null for Backward Compatibility with \Magento\Framework\Data\Collection
+     *
+     * @see \Magento\Framework\Data\Collection::getNewEmptyItem
+     *
      * @param Context $context
      * @param Registry $registry
      * @param string $uuid
@@ -40,9 +44,9 @@ class Source extends AbstractModel implements SourceInterface
     public function __construct(
         Context $context,
         Registry $registry,
-        string $uuid,
-        string $file,
-        string $metaData,
+        string $uuid = null,
+        string $file = null,
+        string $metaData = null,
         AbstractResource $resource = null,
         AbstractDb $resourceCollection = null,
         array $data = []

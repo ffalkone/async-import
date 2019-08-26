@@ -5,7 +5,7 @@
  */
 declare(strict_types=1);
 
-namespace Magento\AsynchronousImport\Model\ResourceModel;
+namespace Magento\AsynchronousImport\Model\Source\ResourceModel;
 
 use Magento\AsynchronousImportApi\Api\Data\SourceInterface;
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;

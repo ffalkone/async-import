@@ -8,8 +8,10 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <!-- Source -->
-    <preference for="Magento\AsynchronousImportApi\Api\Data\SourceInterface" type="Magento\AsynchronousImport\Model\Source"/>
-    <preference for="Magento\AsynchronousImportApi\Api\SaveSourceInterface" type="Magento\AsynchronousImport\Model\SaveSource"/>
+    <preference for="Magento\AsynchronousImportApi\Api\Data\SourceInterface" type="Magento\AsynchronousImport\Model\Source\Source"/>
+    <preference for="Magento\AsynchronousImportApi\Api\Data\SourceSearchResultInterface" type="Magento\AsynchronousImport\Model\Source\SourceSearchResult"/>
+    <preference for="Magento\AsynchronousImportApi\Api\GetSourceListInterface" type="Magento\AsynchronousImport\Model\Source\GetSourceList"/>
+    <preference for="Magento\AsynchronousImportApi\Api\SaveSourceInterface" type="Magento\AsynchronousImport\Model\Source\SaveSource"/>
     <type name="Magento\AsynchronousImportApi\Model\SourceValidatorChain">
         <arguments>
             <argument name="validators" xsi:type="array">
@@ -18,4 +20,6 @@
             </argument>
         </arguments>
     </type>
+    <!-- Import -->
+    <preference for="Magento\AsynchronousImportApi\Api\StartImportInterface" type="Magento\AsynchronousImport\Model\Import\StartImport"/>
 </config>

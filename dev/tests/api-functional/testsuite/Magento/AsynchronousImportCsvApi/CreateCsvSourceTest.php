@@ -5,12 +5,15 @@
  */
 declare(strict_types=1);
 
-namespace Magento\AsynchronousImportCsvApi\Api;
+namespace Magento\AsynchronousImportCsvApi;
 
 use Magento\Framework\Webapi\Rest\Request;
 use Magento\TestFramework\TestCase\WebapiAbstract;
 
-class AsynchronousImportCsvApi extends WebapiAbstract
+/**
+ * Create csv source test
+ */
+class CreateCsvSourceTest extends WebapiAbstract
 {
     /**#@+
      * Service constants
