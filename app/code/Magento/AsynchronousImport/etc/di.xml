@@ -25,4 +25,5 @@
     <preference for="Magento\AsynchronousImportApi\Api\Data\ImportInterface" type="Magento\AsynchronousImport\Model\Import\Import"/>
     <preference for="Magento\AsynchronousImportApi\Api\StartImportInterface" type="Magento\AsynchronousImport\Model\Import\StartImport"/>
     <preference for="Magento\AsynchronousImportApi\Api\SaveImportInterface" type="Magento\AsynchronousImport\Model\Import\SaveImport"/>
+    <preference for="Magento\AsynchronousImportApi\Api\Data\ImportDataInterface" type="Magento\AsynchronousImport\Model\Import\ImportData"/>
 </config>

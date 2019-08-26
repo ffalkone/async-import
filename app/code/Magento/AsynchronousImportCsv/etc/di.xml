@@ -19,4 +19,12 @@
     <!-- needed for resolving issue with generation of CsvFormatExtension -->
     <preference for="Magento\AsynchronousImportCsvApi\Api\Data\CsvFormatExtensionInterface"
                 type="Magento\AsynchronousImportCsvApi\Api\Data\CsvFormatExtension"/>
+
+    <type name="Magento\AsynchronousImportApi\Model\SourceReaderChain">
+        <arguments>
+            <argument name="readers" xsi:type="array">
+                <item name="csv" xsi:type="string">Magento\AsynchronousImportCsv\Model\CsvSourceReader</item>
+            </argument>
+        </arguments>
+    </type>
 </config>

@@ -12,6 +12,7 @@ use Magento\AsynchronousImportApi\Api\Data\SourceInterface;
 use Magento\AsynchronousImportApi\Api\GetSourceListInterface;
 use Magento\AsynchronousImportApi\Api\SaveImportInterface;
 use Magento\AsynchronousImportApi\Api\StartImportInterface;
+use Magento\AsynchronousImportApi\Model\SourceReaderInterface;
 use Magento\Framework\Api\SearchCriteriaBuilder;
 use Magento\Framework\Exception\NoSuchEntityException;
 
@@ -21,14 +22,19 @@ use Magento\Framework\Exception\NoSuchEntityException;
 class StartImport implements StartImportInterface
 {
     /**
+     * @var SearchCriteriaBuilder
+     */
+    private $searchCriteriaBuilder;
+
+    /**
      * @var GetSourceListInterface
      */
     private $getSourceList;
 
     /**
-     * @var SearchCriteriaBuilder
+     * @var SourceReaderInterface
      */
-    private $searchCriteriaBuilder;
+    private $sourceReader;
 
     /**
      * @var SaveImportInterface
@@ -36,17 +42,20 @@ class StartImport implements StartImportInterface
     private $saveImport;
 
     /**
-     * @param GetSourceListInterface $getSourceList
      * @param SearchCriteriaBuilder $searchCriteriaBuilder
+     * @param GetSourceListInterface $getSourceList
+     * @param SourceReaderInterface $sourceReader
      * @param SaveImportInterface $saveImport
      */
     public function __construct(
-        GetSourceListInterface $getSourceList,
         SearchCriteriaBuilder $searchCriteriaBuilder,
+        GetSourceListInterface $getSourceList,
+        SourceReaderInterface $sourceReader,
         SaveImportInterface $saveImport
     ) {
-        $this->getSourceList = $getSourceList;
         $this->searchCriteriaBuilder = $searchCriteriaBuilder;
+        $this->getSourceList = $getSourceList;
+        $this->sourceReader = $sourceReader;
         $this->saveImport = $saveImport;
     }
 
@@ -65,12 +74,11 @@ class StartImport implements StartImportInterface
                 __('Source with uuid "%uuid" does not exist.', ['uuid' => $import->getSourceUuid()])
             );
         }
+        $sources = $sourceSearchResult->getItems();
+        /** @var SourceInterface $source */
+        $source = reset($sources);
 
-        /** @var \Magento\AsynchronousImportApi\Api\Data\SourceInterface $source */
-//        $source = reset($sourceSearchResult->getItems());
-//        $parser = $pasrersPool->get($source);
-        // parsing csv => publisher
-
+        $importData = $this->sourceReader->execute($source);
 
         $this->saveImport->execute($import);
     }

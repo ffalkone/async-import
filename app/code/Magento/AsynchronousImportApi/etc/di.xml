@@ -11,4 +11,6 @@
                 type="Magento\AsynchronousImportApi\Model\SourceValidatorChain"/>
     <preference for="Magento\AsynchronousImportApi\Model\ImportValidatorInterface"
                 type="Magento\AsynchronousImportApi\Model\ImportValidatorChain"/>
+    <preference for="Magento\AsynchronousImportApi\Model\SourceReaderInterface"
+                type="Magento\AsynchronousImportApi\Model\SourceReaderChain"/>
 </config>
