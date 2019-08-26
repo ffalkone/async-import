@@ -20,6 +20,7 @@ interface ImportInterface
     public const IMPORT_BEHAVIOUR = 'import_behaviour';
     public const VALIDATION_STRATEGY = 'validation_strategy';
     public const ALLOWED_ERROR_COUNT = 'allowed_error_count';
+    // TODO: images processing
     public const IMPORT_IMAGE_ARCHIVE = 'import_image_archive';
     public const IMPORT_IMAGES_FILE_DIR = 'import_images_file_dir';
 

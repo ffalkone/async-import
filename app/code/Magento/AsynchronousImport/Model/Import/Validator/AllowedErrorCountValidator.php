@@ -5,19 +5,17 @@
  */
 declare(strict_types=1);
 
-namespace Magento\AsynchronousImport\Model\Source\Validator;
+namespace Magento\AsynchronousImport\Model\Import\Validator;
 
 use Magento\Framework\Validation\ValidationResult;
 use Magento\Framework\Validation\ValidationResultFactory;
-use Magento\AsynchronousImportApi\Api\Data\SourceInterface;
-use Magento\AsynchronousImportApi\Model\SourceValidatorInterface;
-// TODO: remove dependency
-use Ramsey\Uuid\Uuid;
+use Magento\AsynchronousImportApi\Api\Data\ImportInterface;
+use Magento\AsynchronousImportApi\Model\ImportValidatorInterface;
 
 /**
- * Check that "uuid" value is valid
+ * Check that "allowed_error_count" value is valid
  */
-class UuidValidator implements SourceValidatorInterface
+class AllowedErrorCountValidator implements ImportValidatorInterface
 {
     /**
      * @var ValidationResultFactory
@@ -35,14 +33,13 @@ class UuidValidator implements SourceValidatorInterface
     /**
      * @inheritdoc
      */
-    public function validate(SourceInterface $source): ValidationResult
+    public function validate(ImportInterface $import): ValidationResult
     {
-        $value = (string)$source->getUuid();
+        $value = (string)$import->getValidationStrategy();
 
+        // TODO: check integer value
         if ('' === trim($value)) {
-            $errors[] = __('"%field" can not be empty.', ['field' => SourceInterface::UUID]);
-        } elseif (!Uuid::isValid($value)) {
-            $errors[] = __('"The uuid "%uuid" is not valid.', ['uuid' => $value]);
+            $errors[] = __('"%field" can not be empty.', ['field' => ImportInterface::ALLOWED_ERROR_COUNT]);
         } else {
             $errors = [];
         }

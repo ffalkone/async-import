@@ -5,19 +5,19 @@
  */
 declare(strict_types=1);
 
-namespace Magento\AsynchronousImport\Model\Source\Validator;
+namespace Magento\AsynchronousImport\Model\Import\Validator;
 
 use Magento\Framework\Validation\ValidationResult;
 use Magento\Framework\Validation\ValidationResultFactory;
-use Magento\AsynchronousImportApi\Api\Data\SourceInterface;
-use Magento\AsynchronousImportApi\Model\SourceValidatorInterface;
+use Magento\AsynchronousImportApi\Api\Data\ImportInterface;
+use Magento\AsynchronousImportApi\Model\ImportValidatorInterface;
 // TODO: remove dependency
 use Ramsey\Uuid\Uuid;
 
 /**
  * Check that "uuid" value is valid
  */
-class UuidValidator implements SourceValidatorInterface
+class UuidValidator implements ImportValidatorInterface
 {
     /**
      * @var ValidationResultFactory
@@ -35,12 +35,12 @@ class UuidValidator implements SourceValidatorInterface
     /**
      * @inheritdoc
      */
-    public function validate(SourceInterface $source): ValidationResult
+    public function validate(ImportInterface $import): ValidationResult
     {
-        $value = (string)$source->getUuid();
+        $value = (string)$import->getUuid();
 
         if ('' === trim($value)) {
-            $errors[] = __('"%field" can not be empty.', ['field' => SourceInterface::UUID]);
+            $errors[] = __('"%field" can not be empty.', ['field' => ImportInterface::UUID]);
         } elseif (!Uuid::isValid($value)) {
             $errors[] = __('"The uuid "%uuid" is not valid.', ['uuid' => $value]);
         } else {

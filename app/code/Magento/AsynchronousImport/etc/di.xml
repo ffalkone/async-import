@@ -26,4 +26,16 @@
     <preference for="Magento\AsynchronousImportApi\Api\StartImportInterface" type="Magento\AsynchronousImport\Model\Import\StartImport"/>
     <preference for="Magento\AsynchronousImportApi\Api\SaveImportInterface" type="Magento\AsynchronousImport\Model\Import\SaveImport"/>
     <preference for="Magento\AsynchronousImportApi\Api\Data\ImportDataInterface" type="Magento\AsynchronousImport\Model\Import\ImportData"/>
+    <type name="Magento\AsynchronousImportApi\Model\ImportValidatorChain">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="allowed_error_count" xsi:type="object">Magento\AsynchronousImport\Model\Import\Validator\AllowedErrorCountValidator</item>
+                <item name="import_behaviour" xsi:type="object">Magento\AsynchronousImport\Model\Import\Validator\ImportBehaviourValidator</item>
+                <item name="import_type" xsi:type="object">Magento\AsynchronousImport\Model\Import\Validator\ImportTypeValidator</item>
+                <item name="source_uuid" xsi:type="object">Magento\AsynchronousImport\Model\Import\Validator\SourceUuidValidator</item>
+                <item name="uuid" xsi:type="object">Magento\AsynchronousImport\Model\Import\Validator\UuidValidator</item>
+                <item name="validation_strategy" xsi:type="object">Magento\AsynchronousImport\Model\Import\Validator\ValidationStrategyValidator</item>
+            </argument>
+        </arguments>
+    </type>
 </config>
