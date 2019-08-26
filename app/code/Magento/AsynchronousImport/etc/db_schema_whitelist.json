@@ -8,5 +8,18 @@
     "constraint": {
       "PRIMARY": true
     }
+  },
+  "asynchronous_import": {
+    "column": {
+      "uuid": true,
+      "source_uuid": true,
+      "import_type": true,
+      "import_behaviour": true,
+      "validation_strategy": true,
+      "allowed_error_count": true
+    },
+    "constraint": {
+      "PRIMARY": true
+    }
   }
 }

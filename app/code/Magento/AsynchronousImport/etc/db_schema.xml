@@ -15,4 +15,15 @@
             <column name="uuid"/>
         </constraint>
     </table>
+    <table name="asynchronous_import" resource="default" engine="innodb" comment="Import List">
+        <column xsi:type="varbinary" name="uuid" nullable="false" length="39" comment="Universally unique identifier"/>
+        <column xsi:type="varbinary" name="source_uuid" nullable="false" length="39" comment="Source universally unique identifier"/>
+        <column xsi:type="varchar" name="import_type" nullable="false" length="255" comment="Import type"/>
+        <column xsi:type="varchar" name="import_behaviour" nullable="false" length="255" comment="Import behaviour"/>
+        <column xsi:type="varchar" name="validation_strategy" nullable="false" length="255" comment="Validation strategy"/>
+        <column xsi:type="smallint" name="allowed_error_count" nullable="false" comment="Allowed error count"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="uuid"/>
+        </constraint>
+    </table>
 </schema>
