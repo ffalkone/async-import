@@ -17,9 +17,12 @@
             <argument name="validators" xsi:type="array">
                 <item name="uuid" xsi:type="object">Magento\AsynchronousImport\Model\Source\Validator\UuidValidator</item>
                 <item name="file" xsi:type="object">Magento\AsynchronousImport\Model\Source\Validator\FileValidator</item>
+                <item name="meta_data" xsi:type="object">Magento\AsynchronousImport\Model\Source\Validator\MetaDataValidator</item>
             </argument>
         </arguments>
     </type>
     <!-- Import -->
+    <preference for="Magento\AsynchronousImportApi\Api\Data\ImportInterface" type="Magento\AsynchronousImport\Model\Import\Import"/>
     <preference for="Magento\AsynchronousImportApi\Api\StartImportInterface" type="Magento\AsynchronousImport\Model\Import\StartImport"/>
+    <preference for="Magento\AsynchronousImportApi\Api\SaveImportInterface" type="Magento\AsynchronousImport\Model\Import\SaveImport"/>
 </config>

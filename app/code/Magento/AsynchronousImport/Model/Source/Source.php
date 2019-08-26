@@ -36,7 +36,7 @@ class Source extends AbstractModel implements SourceInterface
      * @param Registry $registry
      * @param string $uuid
      * @param string $file
-     * @param array $metaData
+     * @param string $metaData
      * @param AbstractResource|null $resource
      * @param AbstractDb|null $resourceCollection
      * @param array $data

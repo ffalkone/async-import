@@ -8,4 +8,11 @@
             <resource ref="Magento_AsynchronousImportApi::source"/>
         </resources>
     </route>
+    <!-- Import -->
+    <route url="/V1/imports" method="POST">
+        <service class="Magento\AsynchronousImportApi\Api\StartImportInterface" method="execute"/>
+        <resources>
+            <resource ref="Magento_AsynchronousImportApi::import"/>
+        </resources>
+    </route>
 </routes>

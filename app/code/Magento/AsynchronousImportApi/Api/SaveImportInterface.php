@@ -9,22 +9,20 @@ namespace Magento\AsynchronousImportApi\Api;
 
 use Magento\AsynchronousImportApi\Api\Data\ImportInterface;
 use Magento\Framework\Exception\CouldNotSaveException;
-use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Validation\ValidationException;
 
 /**
- * Start import operation
+ * Save import operation
  *
  * @api
  */
-interface StartImportInterface
+interface SaveImportInterface
 {
     /**
-     * Start import operation
+     * Save import operation
      *
      * @param ImportInterface $import
      * @return void
-     * @throws NoSuchEntityException
      * @throws ValidationException
      * @throws CouldNotSaveException
      */

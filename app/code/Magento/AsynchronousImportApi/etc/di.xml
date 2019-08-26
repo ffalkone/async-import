@@ -9,4 +9,6 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Magento\AsynchronousImportApi\Model\SourceValidatorInterface"
                 type="Magento\AsynchronousImportApi\Model\SourceValidatorChain"/>
+    <preference for="Magento\AsynchronousImportApi\Model\ImportValidatorInterface"
+                type="Magento\AsynchronousImportApi\Model\ImportValidatorChain"/>
 </config>
