@@ -28,11 +28,6 @@ class CsvFormat implements CsvFormatInterface
     /**
      * @var string
      */
-    private $delimiter;
-
-    /**
-     * @var string
-     */
     private $multipleValueSeparator;
 
     /**
@@ -43,20 +38,17 @@ class CsvFormat implements CsvFormatInterface
     /**
      * @param string $separator
      * @param string $enclosure
-     * @param string $delimiter
      * @param string $multipleValueSeparator
      * @param CsvFormatExtensionInterface $extensionAttributes
      */
     public function __construct(
         string $separator,
         string $enclosure,
-        string $delimiter,
         string $multipleValueSeparator,
         CsvFormatExtensionInterface $extensionAttributes
     ) {
         $this->separator = $separator;
         $this->enclosure = $enclosure;
-        $this->delimiter = $delimiter;
         $this->multipleValueSeparator = $multipleValueSeparator;
         $this->extensionAttributes = $extensionAttributes;
     }
@@ -75,14 +67,6 @@ class CsvFormat implements CsvFormatInterface
     public function getEnclosure(): string
     {
         return $this->enclosure;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getDelimiter(): string
-    {
-        return $this->delimiter;
     }
 
     /**

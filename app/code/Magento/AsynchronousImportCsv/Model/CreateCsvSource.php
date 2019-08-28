@@ -86,7 +86,6 @@ class CreateCsvSource implements CreateCsvSourceInterface
             [
                 CsvFormatInterface::SEPARATOR => CsvFormatInterface::DEFAULT_SEPARATOR,
                 CsvFormatInterface::ENCLOSURE => CsvFormatInterface::DEFAULT_ENCLOSURE,
-                CsvFormatInterface::DELIMITER => CsvFormatInterface::DEFAULT_DELIMITER,
                 CsvFormatInterface::MULTIPLE_VALUE_SEPARATOR => CsvFormatInterface::DEFAULT_MULTIPLE_VALUE_SEPARATOR,
             ],
             $formatData
