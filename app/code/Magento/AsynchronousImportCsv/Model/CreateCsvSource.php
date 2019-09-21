@@ -75,6 +75,7 @@ class CreateCsvSource implements CreateCsvSourceInterface
      */
     public function execute(string $uuid, SourceDataInterface $sourceData, CsvFormatInterface $format): void
     {
+        $sourceData->setSourceFormat(CsvFormatInterface::FORMAT_TYPE);
         $retrievingResult = $this->retrieveSourceData->execute($sourceData);
 
         if ($retrievingResult->getStatus() === RetrievingResultInterface::STATUS_FAILED) {

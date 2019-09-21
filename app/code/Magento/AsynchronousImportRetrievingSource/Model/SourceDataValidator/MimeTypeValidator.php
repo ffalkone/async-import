@@ -49,6 +49,11 @@ class MimeTypeValidator implements SourceDataValidatorInterface
     private $validationResultFactory;
 
     /**
+     * @var array
+     */
+    private $allowedMimeTypes;
+
+    /**
      * @param Http $httpDriver
      * @param Mime $mime
      * @param File $fileSystemIo
@@ -60,13 +65,15 @@ class MimeTypeValidator implements SourceDataValidatorInterface
         Mime $mime,
         File $fileSystemIo,
         Filesystem $fileSystem,
-        ValidationResultFactory $validationResultFactory
+        ValidationResultFactory $validationResultFactory,
+        array $allowedMimeTypes = []
     ) {
         $this->httpDriver = $httpDriver;
         $this->mime = $mime;
         $this->fileSystemIo = $fileSystemIo;
         $this->fileSystem = $fileSystem;
         $this->validationResultFactory = $validationResultFactory;
+        $this->allowedMimeTypes = $allowedMimeTypes;
     }
 
     /**
@@ -81,7 +88,8 @@ class MimeTypeValidator implements SourceDataValidatorInterface
                 $mimeType = implode(";", $mimeType);
             }
             $mimeType = trim(explode(";", $mimeType)[0]);
-            if (!in_array($mimeType, [])) {
+            if (!isset($this->allowedMimeTypes[$sourceData->getSourceFormat()]) ||
+                !in_array($mimeType, $this->allowedMimeTypes[$sourceData->getSourceFormat()])) {
                 $errors[] = __(
                     'Invalid mime type: %1, expected is one of: %2',
                     $mimeType,

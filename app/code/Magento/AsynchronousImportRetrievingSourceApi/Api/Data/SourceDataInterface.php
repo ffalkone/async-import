@@ -30,4 +30,16 @@ interface SourceDataInterface
      * @return string
      */
     public function getSourceData(): string;
+
+    /**
+     * Get Source Format
+     */
+    public function getSourceFormat(): string;
+
+    /**
+     * Set Source Format
+     *
+     * @param string $sourceFormat
+     */
+    public function setSourceFormat(string $sourceFormat): void;
 }

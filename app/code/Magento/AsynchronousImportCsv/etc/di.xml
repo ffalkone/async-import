@@ -27,4 +27,24 @@
             </argument>
         </arguments>
     </type>
+
+    <!-- add mine types for csv files to validator -->
+    <type name="Magento\AsynchronousImportRetrievingSource\Model\SourceDataValidator\MimeTypeValidator">
+        <arguments>
+            <argument name="allowedMimeTypes" xsi:type="array">
+                <item name="csv" xsi:type="array">
+                    <item name="application_csv" xsi:type="string">application/csv</item>
+                    <item name="application_x-csv" xsi:type="string">application/x-csv</item>
+                    <item name="application_vnd.ms-excel" xsi:type="string">application/vnd.ms-excel</item>
+                    <item name="text_csv" xsi:type="string">text/csv</item>
+                    <item name="text/comma-separated-values" xsi:type="string">text/comma-separated-values</item>
+                    <item name="text_plain" xsi:type="string">text/plain</item>
+                    <item name="text_tab-separated-values" xsi:type="string">text/tab-separated-values</item>
+                    <item name="text_x-comma-separated-values" xsi:type="string">text/x-comma-separated-values</item>
+                    <item name="text_x-csv" xsi:type="string">text/x-csv</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
 </config>
